@@ -4,7 +4,7 @@ body {
   font-weight: 4000;
   font-size: 20px;
   font-family: "Menlo", "Meslo LG", monospace;
-  line-height: 1.725;
+  line-height: 2;
   text-rendering: geometricPrecision;
 }
 a {
