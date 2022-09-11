@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        acwer
+    </title>
+    <meta name="description" content= 欢迎来到我的博客! >
+    <meta name="keywords" content= acwing,algorithm,leetcode,blog >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="JDBC所处的位置"><a href="#JDBC所处的位置" class="headerlink" title="JDBC所处的位置"></a>JDBC所处的位置</h2><p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_7844d75912-9.png" alt="9.png"> </p>
+<h2 id="JDBC的本质"><a href="#JDBC的本质" class="headerlink" title="JDBC的本质"></a>JDBC的本质</h2><p>Java操作数据库的一套接口。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>ddl:数据库定义语言，例如建表，创建数据库等。</p>
+<p>dml:数据库操作语言，例如增删改。</p>
+<p>dql:数据库查询语言，例如查询语句。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>在创建Java项目后的第一个步骤是导入jar包。</p>
+<h3 id="导入jar包的步骤"><a href="#导入jar包的步骤" class="headerlink" title="导入jar包的步骤"></a>导入jar包的步骤</h3><h4 id="1-创建lib文件夹"><a href="#1-创建lib文件夹" class="headerlink" title="1 创建lib文件夹"></a>1 创建lib文件夹</h4><p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_a16a8f4112-8.png" alt="8.png"> </p>
+<h4 id="2-将jar包放到lib中"><a href="#2-将jar包放到lib中" class="headerlink" title="2 将jar包放到lib中"></a>2 将jar包放到lib中</h4><p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_bc1675f012-0.png" alt="0.png"> </p>
+<h4 id="3-将jar包导入本项目的库中"><a href="#3-将jar包导入本项目的库中" class="headerlink" title="3 将jar包导入本项目的库中"></a>3 将jar包导入本项目的库中</h4><p>要想该项目可以真正地识别该jar包，我们需要将该jar包导入到库中。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_d521d70c12-11.png" alt="11.png"> </p>
+<h3 id="jar包"><a href="#jar包" class="headerlink" title="jar包"></a>jar包</h3><p>mysql—jar包就是mysql在jdbc的规则下，实现了一些有关于jdbc的实现类。mysql实现类也</p>
+<p>叫做mysql驱动，也可以看作成一套mysql接口的实现类，java代码控制实现类，进而控制</p>
+<p>mysql数据库。</p>
+<h2 id="DriverManager"><a href="#DriverManager" class="headerlink" title="DriverManager"></a>DriverManager</h2><h3 id="DriverManager的定义"><a href="#DriverManager的定义" class="headerlink" title="DriverManager的定义"></a>DriverManager的定义</h3><p>管理驱动类(也就是mysql实现类)的一个工具类。</p>
+<h3 id="DriverManager的作用"><a href="#DriverManager的作用" class="headerlink" title="DriverManager的作用"></a>DriverManager的作用</h3><p>1 注册驱动类(也就是实现类)</p>
+<p>2 获取数据库的连接</p>
+<h2 id="注册驱动"><a href="#注册驱动" class="headerlink" title="注册驱动"></a>注册驱动</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	过去的写法是&quot;com.mysql.jdbc.Driver&quot;,不过这种写法已经被淘汰了。现在的写法是com.mysql.cj.jdbc.Driver。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="为什么这种写法是正确的？"><a href="#为什么这种写法是正确的？" class="headerlink" title="为什么这种写法是正确的？"></a>为什么这种写法是正确的？</h4><p>​		我们可以看到Driver源码中有DriverManager.registerDriver(),表明Class.forName(“com.mysql.cj.jdbc.Driver”);这种注册驱动类的写法是正确的。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_0f76edb312-22.png" alt="22.png"> </p>
+<h2 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h2><h3 id="Connection的定义"><a href="#Connection的定义" class="headerlink" title="Connection的定义"></a>Connection的定义</h3><p>数据库的连接对象。</p>
+<h3 id="Connection的作用"><a href="#Connection的作用" class="headerlink" title="Connection的作用"></a>Connection的作用</h3><p>1 获取执行sql的对象</p>
+<p>2 管理事务</p>
+<h3 id="获取执行sql的对象"><a href="#获取执行sql的对象" class="headerlink" title="获取执行sql的对象"></a>获取执行sql的对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取执行sql的对象 statement</span></span><br><span class="line"><span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> connection.createStatement();</span><br></pre></td></tr></table></figure>
+
+<h3 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h3><p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_289deafa12-44.png" alt="44.png"> </p>
+<h4 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *   DriverManager:管理驱动类(也就是实现类)的一个工具类。</span></span><br><span class="line"><span class="comment">        *   它的作用: 1 注册驱动类(实现类)</span></span><br><span class="line"><span class="comment">        *           2 获取数据库的连接。</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            注册驱动(也就是注册或加载mysql相关jdbc接口的实现类，这些实现类也就是jar包)</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取连接</span></span><br><span class="line">        String url=<span class="string">&quot;jdbc:mysql://localhost:3306/company&quot;</span>;</span><br><span class="line">        String username=<span class="string">&quot;root&quot;</span>;</span><br><span class="line">        String password=<span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> DriverManager.getConnection(url,username,password);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义sql语句</span></span><br><span class="line">        String sql1=<span class="string">&quot;update student set name=&#x27;吴帅&#x27; where id=1 &quot;</span>;</span><br><span class="line">        String sql2=<span class="string">&quot;update student set name=&#x27;吴龙&#x27; where id=2 &quot;</span>;</span><br><span class="line">        <span class="comment">//获取执行sql的对象 statement</span></span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> connection.createStatement();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//开启事务</span></span><br><span class="line">            connection.setAutoCommit(<span class="literal">false</span>);   <span class="comment">//开启事务</span></span><br><span class="line">            <span class="comment">//执行sql</span></span><br><span class="line">            <span class="comment">//返回值是受影响的行数，select语句在这里会报错。</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">row1</span> <span class="operator">=</span> statement.executeUpdate(sql1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//处理结果</span></span><br><span class="line">            System.out.println(row1);</span><br><span class="line">            <span class="comment">//如果在这里添加 int a=1/0;则两条语句都不会发挥作用。</span></span><br><span class="line">            <span class="comment">//执行sql</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">row2</span> <span class="operator">=</span> statement.executeUpdate(sql2);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//处理结果</span></span><br><span class="line">            System.out.println(row2);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//提交事务</span></span><br><span class="line">            connection.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            <span class="comment">//回滚事务</span></span><br><span class="line">            connection.rollback();</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//释放资源</span></span><br><span class="line">        statement.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h2><h3 id="Statement的作用"><a href="#Statement的作用" class="headerlink" title="Statement的作用"></a>Statement的作用</h3><p>执行sql语句。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_41a5712812-46.png" alt="46.png"> </p>
+<h3 id="1-执行dml语句"><a href="#1-执行dml语句" class="headerlink" title="1 执行dml语句"></a>1 执行dml语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">        String url=<span class="string">&quot;jdbc:mysql://localhost:3306/company&quot;</span>;</span><br><span class="line">        String username=<span class="string">&quot;root&quot;</span>;</span><br><span class="line">        String password=<span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> DriverManager.getConnection(url,username,password);</span><br><span class="line">        <span class="comment">//dml语句</span></span><br><span class="line">        String sql1=<span class="string">&quot;update student set name=&#x27;吴帅&#x27; where id=1&quot;</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> connection.createStatement();</span><br><span class="line">            <span class="type">int</span> <span class="variable">row1</span> <span class="operator">=</span> statement.executeUpdate(sql1);</span><br><span class="line">            <span class="keyword">if</span>(row1&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;修改成功！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;修改失败！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        statement.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-执行ddl语句"><a href="#2-执行ddl语句" class="headerlink" title="2 执行ddl语句"></a>2 执行ddl语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">        String url=<span class="string">&quot;jdbc:mysql://localhost:3306/company&quot;</span>;</span><br><span class="line">        String username=<span class="string">&quot;root&quot;</span>;</span><br><span class="line">        String password=<span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> DriverManager.getConnection(url,username,password);</span><br><span class="line">        <span class="comment">//ddl语句</span></span><br><span class="line">        String sql1=<span class="string">&quot;create database handsome_db&quot;</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> connection.createStatement();</span><br><span class="line">            <span class="type">int</span> <span class="variable">row1</span> <span class="operator">=</span> statement.executeUpdate(sql1);</span><br><span class="line">            <span class="keyword">if</span>(row1&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;创建成功！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;创建失败！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        statement.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><p>删除操作可能返回值(count)为0</p>
+<h3 id="3-执行dql语句"><a href="#3-执行dql语句" class="headerlink" title="3 执行dql语句"></a>3 执行dql语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">        String url=<span class="string">&quot;jdbc:mysql://localhost:3306/company&quot;</span>;</span><br><span class="line">        String username=<span class="string">&quot;root&quot;</span>;</span><br><span class="line">        String password=<span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> DriverManager.getConnection(url,username,password);</span><br><span class="line">        <span class="comment">//dql语句</span></span><br><span class="line">        String sql=<span class="string">&quot;select *from student&quot;</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> connection.createStatement();</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">resultSet</span> <span class="operator">=</span> statement.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//类似于java循环中的迭代器</span></span><br><span class="line">        <span class="comment">//光标的起始位置是指向字段那一行，</span></span><br><span class="line">        <span class="keyword">while</span>(resultSet.next()==<span class="literal">true</span>)&#123; <span class="comment">//向下移动一行，如果当前行有数据，则为true。</span></span><br><span class="line">            <span class="comment">//获取数据  getXXX(字段号);  字段号从1开始。</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> resultSet.getInt(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">mobile</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;mobile&quot;</span>);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;id = &quot;</span>+id+<span class="string">&quot;  &quot;</span>+<span class="string">&quot;name = &quot;</span>+name+<span class="string">&quot;  &quot;</span>+<span class="string">&quot;mobile = &quot;</span>+mobile);</span><br><span class="line">        &#125;</span><br><span class="line">        resultSet.close();</span><br><span class="line">        statement.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h2><h3 id="传统的连接方式"><a href="#传统的连接方式" class="headerlink" title="传统的连接方式"></a>传统的连接方式</h3><p>只有一个连接对象，用完之后关闭，然后给下一个，然后开启。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_5aa75de912-77.png" alt="77.png"> </p>
+<h3 id="现代的连接方式"><a href="#现代的连接方式" class="headerlink" title="现代的连接方式"></a>现代的连接方式</h3><p>有多个连接对象，用完之后放入到连接池中，不关闭，等待下一个用户使用。而Druid连接池是目前最优秀的连接池之一。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_6cd5816812-88.png" alt="88.png"> </p>
+<h3 id="Druid的使用步骤"><a href="#Druid的使用步骤" class="headerlink" title="Druid的使用步骤"></a>Druid的使用步骤</h3><h4 id="1-导入jar包"><a href="#1-导入jar包" class="headerlink" title="1 导入jar包"></a>1 导入jar包</h4><p>创建一个lib文件夹，然后将druidjar包导入到lib中。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_87f10bda12-66.png" alt="66.png"> </p>
+<p>要想该项目可以真正地识别该jar包，我们需要将该jar包导入到库中。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_a118021812-55.png" alt="55.png"> </p>
+<h4 id="2-导入配置文件"><a href="#2-导入配置文件" class="headerlink" title="2 导入配置文件"></a>2 导入配置文件</h4><p><img src="https://cdn.acwing.com/media/article/image/2022/08/03/136759_b9881c1f12-77.png" alt="77.png"> </p>
+<h4 id="3-加载配置文件"><a href="#3-加载配置文件" class="headerlink" title="3 加载配置文件"></a>3 加载配置文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        <span class="comment">//这里写绝对路径比较好一点</span></span><br><span class="line">        properties.load(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;E:/jdbc1/jdbc/src/druid.properties&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-获取连接池对象"><a href="#4-获取连接池对象" class="headerlink" title="4 获取连接池对象"></a>4 获取连接池对象</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> DruidDataSourceFactory.createDataSource(properties);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-获取数据库连接"><a href="#5-获取数据库连接" class="headerlink" title="5 获取数据库连接"></a>5 获取数据库连接</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> dataSource.getConnection();</span><br><span class="line">System.out.println(connection);</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: acwer | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
