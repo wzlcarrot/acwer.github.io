@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        acwer
+    </title>
+    <meta name="description" content= 欢迎来到我的博客! >
+    <meta name="keywords" content= acwing,algorithm,leetcode,blog >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            maven的基础知识
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h2 id="maven的基础知识"><a href="#maven的基础知识" class="headerlink" title="maven的基础知识"></a>maven的基础知识</h2><h3 id="maven环境搭建和配置"><a href="#maven环境搭建和配置" class="headerlink" title="maven环境搭建和配置"></a>maven环境搭建和配置</h3><ul>
+<li><p>为什么要学习这个技术？</p>
+<p>​		在Javaweb中，有大量的jar包需要我们去导入，如果一个一个导入，则会浪费大量的时间。由此，maven诞生了。maven项目管理工具的目的就是为了方便导入和配置jar包。</p>
+</li>
+<li><p>maven会规定你该如何地去编写Java代码，必须按照这个规范来。</p>
+</li>
+<li><p>下载解压maven压缩文件</p>
+</li>
+<li><p>配置环境变量</p>
+<p>在系统变量中新建和配置path和MAVEN_HOME。</p>
+<ul>
+<li>MAVEN_HOME            D:\apache-maven-3.6.1-bin\apache-maven-3.6.1</li>
+<li>path                 %MAVEN_HOME%\bin</li>
+</ul>
+</li>
+<li><p>通过mvn -version命令来判断maven是否安装成功。</p>
+<p><img src="https://img-blog.csdnimg.cn/204f25db7ab54c8397a069f4a0a6f3b5.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>配置文件</p>
+<ul>
+<li><p>通过阿里云镜像(mirror)来加快下载和导入jar包。</p>
+</li>
+<li><p>国内尽量使用阿里云镜像</p>
+</li>
+<li><p>将下面这段代码导入到&#x2F;conf&#x2F;setting.xml文件中。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://img-blog.csdnimg.cn/cf6cea3a39404a1fb61a0e328ea39994.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+</li>
+<li><p>建立一个本地仓库(localRepository)</p>
+<ul>
+<li><p>进入cof&#x2F;setting.xml</p>
+</li>
+<li><p>在localRepository标签中加入一串代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\apache-maven-3.6.1-bin\apache-maven-3.6.1\mvn_resp<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/9495f96f96cc48eba4ccabbd0ac013d3.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="maven在idea中的使用"><a href="#maven在idea中的使用" class="headerlink" title="maven在idea中的使用"></a>maven在idea中的使用</h3><ol>
+<li><p>启动idea</p>
+</li>
+<li><p>创建一个maven项目</p>
+<p><img src="https://img-blog.csdnimg.cn/7f60f7d6841d4f418abb27124913b2f4.png" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/5de21f80cae24acca38ab1ae9aea8f35.png" alt="在这里插入图片描述"> </p>
+<ol start="3">
+<li><p>等待项目初始化完毕</p>
+</li>
+<li><p>观察maven项目中多了什么东西？</p>
+</li>
+</ol>
+<p>多了一些maven项目需要的jar包。</p>
+<ol start="5">
+<li><p>记住Maven的文件地址、配置文件、本地仓库需要配置正确，这样才不会爆红。</p>
+</li>
+<li><p>创建一个普通的maven项目</p>
+</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_f078e3d028-11.png" alt="11.png"><br>然后将maven的文件地址、配置文件、本地仓库配置正确。</p>
+<ol start="7">
+<li>普通的maven项目的目录</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_1e5fc93a28-22.png" alt="22.png"> </p>
+<ol start="8">
+<li>模板创建maven项目的目录</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_3fad347728-44.png" alt="44.png"> </p>
+<ol start="9">
+<li>maven项目的标记文件夹功能</li>
+</ol>
+<p>创建java和resources文件夹，可能不能创建class文件。则我们需要对文件夹进行标记。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_57916ca528-21.png" alt="21.png"> </p>
+<ol start="10">
+<li>在idea中配置tomcat</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_730c37f928-33.png" alt="33.png"> </p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_886bc2f128-44.png" alt="44.png"> </p>
+<ol start="11">
+<li>解决警告问题</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_9ae88fe728-77.png" alt="77.png"> </p>
+<ol start="12">
+<li>运行该项目</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/08/30/136759_b5dde08028-66.png" alt="66.png"> </p>
+<ol start="13">
+<li>war包</li>
+</ol>
+<p>一般Javaweb项目会打包成war包。</p>
+<ol start="14">
+<li>maven的生命周期</li>
+</ol>
+<p>启动compile，首先不是从中央仓库中寻找jar包，而是先到阿里云镜像仓库中寻找jar包，把这些jar包放入到本地仓库中。</p>
+<p>compile：编译</p>
+<p>clean：清理target</p>
+<p>package：打成一个jar包</p>
+<p>test：执行test目录项目</p>
+<p>install：将该项目打成jar包放到本地仓库内。</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: acwer | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
