@@ -33,13 +33,13 @@
         <hr>
     </div>
     <div class="post-content">
-        <h2 id="web的基本概念"><a href="#web的基本概念" class="headerlink" title="web的基本概念"></a>web的基本概念</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web是网页的意思,例如www.baidu.com(百度)。</span><br></pre></td></tr></table></figure>
-
+        <h2 id="web的基本概念"><a href="#web的基本概念" class="headerlink" title="web的基本概念"></a>web的基本概念</h2><p>web是网页的意思,例如<a target="_blank" rel="noopener" href="http://www.baidu.com(百度)./">www.baidu.com(百度)。</a></p>
 <p>web又分成两种</p>
 <ul>
-<li><h3 id="静态web"><a href="#静态web" class="headerlink" title="静态web"></a>静态web</h3><pre><code>1. 由html,css所构成的网页.
-2. 网页的数据始终不会发生变化.
-</code></pre>
+<li><h3 id="静态web"><a href="#静态web" class="headerlink" title="静态web"></a>静态web</h3><ol>
+<li>由html,css所构成的网页.</li>
+<li>网页的数据始终不会发生变化.</li>
+</ol>
 </li>
 <li><h3 id="动态web"><a href="#动态web" class="headerlink" title="动态web"></a>动态web</h3></li>
 </ul>
@@ -139,22 +139,17 @@
 
 
 
-<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><h3 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h3><h4 id="1-TCP"><a href="#1-TCP" class="headerlink" title="1.TCP:"></a>1.TCP:</h4><pre><code>    当一台计算机和另一台计算机相互通讯时，在这种协议下，两台计算机之间会比较畅通
-</code></pre>
+<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><h3 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h3><h4 id="1-TCP"><a href="#1-TCP" class="headerlink" title="1.TCP:"></a>1.TCP:</h4><p>​		当一台计算机和另一台计算机相互通讯时，在这种协议下，两台计算机之间会比较畅通</p>
 <p>和可靠(因为在连接之前会进行三次握手，在断开的时候会四次挥手)。</p>
-<h4 id="2-UDP"><a href="#2-UDP" class="headerlink" title="2.UDP:"></a>2.UDP:</h4><pre><code>    它是一种无连接的协议，数据想发就发，所以不会建立可靠的数据传输，也就是说数据
-</code></pre>
+<h4 id="2-UDP"><a href="#2-UDP" class="headerlink" title="2.UDP:"></a>2.UDP:</h4><p>​		它是一种无连接的协议，数据想发就发，所以不会建立可靠的数据传输，也就是说数据</p>
 <p>在传输的过程中可能会导致部分数据丢失，但是比TCP更加高效，适合视频直播类的。</p>
-<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><pre><code>    我们的电脑上可能存在大量的应用程序，我们可以通过ip地址来访问目标计算机，然后
-</code></pre>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><p>​		我们的电脑上可能存在大量的应用程序，我们可以通过ip地址来访问目标计算机，然后</p>
 <p>通过端口号来访问特定的应用程序。</p>
 <p><img src="https://cdn.acwing.com/media/article/image/2022/08/01/136759_577c675a11-6.png" alt="6.png"> </p>
-<h3 id="Socket技术"><a href="#Socket技术" class="headerlink" title="Socket技术"></a>Socket技术</h3><pre><code>    通过Socket技术，我们可以实现两台计算机之间的通信，Socket也被翻译成套接字，它
-</code></pre>
+<h3 id="Socket技术"><a href="#Socket技术" class="headerlink" title="Socket技术"></a>Socket技术</h3><p>​		通过Socket技术，我们可以实现两台计算机之间的通信，Socket也被翻译成套接字，它</p>
 <p>支持TCP和UDP协议。java对于socket技术有一套完整的封装，我们可以通过Java来实现一</p>
 <p>套完整的通信，</p>
-<pre><code>    要实现Socket通信，我们必须创建一个数据发送者和一个数据接收者，也就是客户端和
-</code></pre>
+<p>​		要实现Socket通信，我们必须创建一个数据发送者和一个数据接收者，也就是客户端和</p>
 <p>服务器端，我们需要提前开启服务器端，等待客户端对服务器端的连接。</p>
 <p>下面展示的是<strong>数据从客户端到服务端的过程</strong>,通过一串代码来进行演示。</p>
 <h4 id="相关代码："><a href="#相关代码：" class="headerlink" title="相关代码："></a>相关代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*server类*/</span></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Server</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">ServerSocket</span> <span class="variable">server</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;---正在等待客户端的连接---&quot;</span>);</span><br><span class="line">            <span class="comment">//阻塞该线程，等待客户端的连接，当客户端对服务端发起连接时，此时服务端会恢复成正常状态。</span></span><br><span class="line">            <span class="comment">/*  返回的对象是客户端的连接。即为socket，socket中存储了有关于客户端的一些数据</span></span><br><span class="line"><span class="comment">                所以，我们可以通过某些方法来得到客户端的ip地址。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> server.accept();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取主机，也就是服务端的地址。</span></span><br><span class="line">            System.out.println(<span class="string">&quot;连接已建立，客户端端的ip地址为&quot;</span>+socket.getInetAddress().getHostAddress());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//读取从客户端发来的数据</span></span><br><span class="line">            System.out.println(<span class="string">&quot;读取客户端的数据:&quot;</span>);</span><br><span class="line">            <span class="type">BufferedReader</span> <span class="variable">bufferedReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(socket.getInputStream()));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//输出读取的数据</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">while</span>((str = bufferedReader.readLine())!=<span class="literal">null</span>)&#123;</span><br><span class="line">                System.out.println(str);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            socket.close();</span><br><span class="line">            <span class="comment">//关闭服务端</span></span><br><span class="line">            server.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -296,20 +291,18 @@
 
 <ol start="3">
 <li><p>编写一个servlet程序</p>
-<ol>
+<ul>
 <li><p>编写一个普通类</p>
 </li>
 <li><p>实现HttpServlet接口，也就是直接继承HttpServlet接口</p>
-<ol start="4">
-<li>编写servlet注解</li>
-</ol>
-<p>在类中加上@WebServlet(“&#x2F;Demo01”)注解，意思就是通过Demo01可以访问servlet这个页面</p>
-<pre><code> 5.  配置tomcat服务器
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/7adf5896baa142f7881dc201161904de.png)
-</code></pre>
 </li>
-</ol>
+<li><p>编写servlet注解</p>
+</li>
+</ul>
+<p>在类中加上@WebServlet(“&#x2F;Demo01”)注解，意思就是通过Demo01可以访问servlet这个页面。</p>
+<ul>
+<li>配置tomcat服务器</li>
+</ul>
 </li>
 </ol>
 </li>
